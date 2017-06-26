@@ -70,7 +70,7 @@ async function recordOneSecond(path) {
 			} else {
 				// Something went wrong, but didn't throw an error
 			}
-		})
+		}, 1000)
 	} else {
 		// Something went wrong, but didn't throw an error
 	}
