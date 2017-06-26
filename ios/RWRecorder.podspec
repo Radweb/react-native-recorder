@@ -17,8 +17,6 @@ Pod::Spec.new do |s|
 
 
   s.dependency "React"
-  #s.dependency "others"
+  s.dependency "EZAudio", "-> 1.1.4"
 
 end
-
-  
