@@ -1,9 +1,20 @@
 
 # react-native-recorder
 
+Simple state machine based audio recording. All you need to do is call `#start` or `#stop` on a
+`Recorder` instance, the library handles transitions through these states:
+
+- `CREATED` - A recorder has been created, and is ready to go
+- `PREPARED` - [Android] A recorder that has had its file on disk prepared
+- `STARTED` - A recorder that is currently recording audio
+- `STOPPED` - A recorder that has finished recording audio, and needs to be reset before starting again
+- `DESTROYED` - A recorder that has had its underlying native resources cleaned up and can no longer be used
+
 ## Getting started
 
-`$ npm install react-native-recorder --save`
+(Version 1 not currently released, but when it is you should do this)
+
+`$ yarn add github:Radweb/react-native-recorder#v1.0.0`
 
 ### Mostly automatic installation
 
@@ -45,9 +56,24 @@
 
 ## Usage
 ```javascript
-import RWRecorder from 'react-native-recorder';
+import Recorder from 'react-native-recorder'
 
-// TODO: What to do with the module?
-RWRecorder;
+async function recordOneSecond(path) {
+	const recorder = new Recorder()
+	const started = await recorder.start(path)
+	if (started) {
+		setTimeout(async () => {
+			const stopped = await recorder.stop()
+			if (stopped) {
+				// You can reuse the same recorder, but we're done now
+				// So we can release it
+			} else {
+				// Something went wrong, but didn't throw an error
+			}
+		})
+	} else {
+		// Something went wrong, but didn't throw an error
+	}
+}
 ```
   
