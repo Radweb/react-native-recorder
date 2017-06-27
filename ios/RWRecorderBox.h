@@ -6,12 +6,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <EZAudio/EZRecorder.h>
+#import <EZAudio/EZAudio.h>
 #import "RWRecorder.h"
 
-@interface RWRecorderBox : NSObject
+typedef NS_ENUM(NSInteger, RecorderState) {
+    RWCreated,
+    RWPrepared,
+    RWStarted,
+    RWStopped,
+    RWDestroyed
+};
 
-@property (nonatomic, nonnull, strong) RecorderState state;
-@property (nonatomic, strong) EZRecorder* recorder;
+@interface RWRecorderBox : NSObject <EZRecorderDelegate, EZMicrophoneDelegate>
+
+@property (nonatomic, assign) RecorderState state;
+@property (nonatomic, nullable, strong) EZRecorder* recorder;
+@property (nonatomic, nullable, strong) EZMicrophone* microphone;
+
+- (void) start: (NSString *) path;
+- (void) stop;
 
 @end

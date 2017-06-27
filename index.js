@@ -5,6 +5,7 @@ const { RWRecorder } = NativeModules
 
 export default class Recorder {
 	constructor() {
+		console.log(RWRecorder, NativeModules)
 		this.getId = RWRecorder.create()
 		this.hasReleased = false
 	}
