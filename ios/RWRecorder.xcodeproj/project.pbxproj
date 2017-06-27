@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RWRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RWRecorder.m */; };
 		BF62F2021F016B88001D2532 /* RWRecorderBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62F2011F016B88001D2532 /* RWRecorderBox.m */; };
-		FFF6441D7557CFF2BDFD1809 /* libPods-RWRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FECAE774006511EE1894 /* libPods-RWRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFF6441D7557CFF2BDFD1809 /* libPods-RWRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

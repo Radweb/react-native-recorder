@@ -1,17 +1,20 @@
 
 {
   "name": "react-native-recorder",
-  "version": "1.0.0-beta23",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Records AAC format files to the specified path. Nothing more, nothing less.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [
-    "react-native"
+    "react-native",
+    "recording",
+    "native",
+    "ios",
+    "android",
+    "EZAudio"
   ],
-  "author": "",
-  "license": "",
+  "author": "Louis Capitanchik <contact@louiscap.co>",
+  "license": "Apache-2.0",
   "peerDependencies": {
     "react-native": "^0.41.2",
     "react-native-windows": "0.41.0-rc.1"

@@ -7,7 +7,6 @@ RCT_EXPORT_MODULE()
 
 - (instancetype) init
 {
-    NSLog(@"OAISND");
     self = [super init];
     
     self.recorders = [NSMutableDictionary new];

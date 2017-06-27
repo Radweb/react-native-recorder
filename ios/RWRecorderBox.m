@@ -11,11 +11,11 @@
 - (instancetype) init
 {
     self = [super init];
-    
+
     self.state = RWCreated;
     self.recorder = nil;
     self.microphone = nil;
-    
+
     return self;
 }
 
@@ -24,16 +24,13 @@
 - (void) stop
 {
     if (self.recorder == nil) return;
-    
-    // Stop sending events as soon as possible, it could still send events whilst stopping
-    self.microphone.delegate = nil;
+
     self.state = RWStopped;
-    
+
     [self.microphone stopFetchingAudio];
     [self.recorder closeAudioFile];
 
     self.microphone = nil;
-    self.recorder = nil;
 }
 
 - (void) start: (NSURL *) path
@@ -41,15 +38,17 @@
     if (self.state == RWStopped || self.state == RWCreated) {
         self.microphone = [EZMicrophone microphoneWithDelegate:self];
 
+        NSArray *inputs = [EZAudioDevice inputDevices];
+        [self.microphone setDevice:[inputs lastObject]];
+
         self.recorder = [EZRecorder recorderWithURL:path
                                        clientFormat:[self.microphone audioStreamBasicDescription]
-                                         fileFormat:[self aacFormat]
-                                    audioFileTypeID:kMPEG4Object_AAC_Main
-                                           delegate: self];
-        
-        
+                                           fileType:EZRecorderFileTypeM4A];
+
+        self.recorder.delegate = self;
+
         self.state = RWStarted;
-        
+
         [self.microphone startFetchingAudio];
     }
 }
@@ -68,7 +67,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
 
 - (void) recorderDidClose:(EZRecorder *)recorder
 {
-    [self stop];
+    self.recorder = nil;
 }
 
 #pragma mark Formats
@@ -87,7 +86,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
     descriptor.mFormatFlags = kAudioFormatFlagIsSignedInteger |
         kAudioFormatFlagsNativeEndian |
         kLinearPCMFormatFlagIsPacked;
-    
+
     return descriptor;
 }
 
@@ -103,7 +102,7 @@ withNumberOfChannels:(UInt32)numberOfChannels
     descriptor.mChannelsPerFrame = 1;
     descriptor.mBitsPerChannel = 0;
     descriptor.mReserved = 0;
-    
+
     return descriptor;
 }
 
