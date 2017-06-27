@@ -5,6 +5,8 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
+#import "RWRecorderBox.h"
+
 typedef enum {
     RWCreated,
     RWPrepared,

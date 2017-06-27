@@ -17,7 +17,22 @@ RCT_EXPORT_METHOD(create: (RCTPromiseResolveBlock) resolve
     
     NSString* uuid = [[NSUUID UUID] UUIDString];
     
+    [self.recorders setObject:[[RWRecorderBox alloc] init] withKey:uuid];
+    
     resolve(uuid);
+}
+
+RCT_EXPORT_METHOD(release: (NSString) ident
+                  resolve: (RCTPromiseResolveBlock) resolve
+                  reject: (RCTPromiseRejectBlock) reject) {
+    
+    RWRecorderBox* box = [self.recorders getObject: ident];
+    
+    if (box == nil) {
+        resolve(FALSE);
+    } else {
+        resolve(TRUE);
+    }
 }
 
 @end

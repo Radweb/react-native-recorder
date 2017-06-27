@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RWRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RWRecorder.m */; };
 		BF62F2021F016B88001D2532 /* RWRecorderBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62F2011F016B88001D2532 /* RWRecorderBox.m */; };
+		FFF6441D7557CFF2BDFD1809 /* libPods-RWRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E0FECAE774006511EE1894 /* libPods-RWRecorder.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		043ADA400C78EA69AD0359BA /* Pods-RWRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWRecorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWRecorder/Pods-RWRecorder.debug.xcconfig"; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libRWRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRWRecorder.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RWRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRecorder.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RWRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRecorder.m; sourceTree = "<group>"; };
 		BF62F2001F016B88001D2532 /* RWRecorderBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRecorderBox.h; sourceTree = "<group>"; };
 		BF62F2011F016B88001D2532 /* RWRecorderBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRecorderBox.m; sourceTree = "<group>"; };
+		E5E7B4971270B89FE61F63CA /* Pods-RWRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWRecorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-RWRecorder/Pods-RWRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		E9E0FECAE774006511EE1894 /* libPods-RWRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RWRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF6441D7557CFF2BDFD1809 /* libPods-RWRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +63,26 @@
 				BF62F2001F016B88001D2532 /* RWRecorderBox.h */,
 				BF62F2011F016B88001D2532 /* RWRecorderBox.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				E1A6875A440196108F2C5A09 /* Pods */,
+				5E3213C559EBFA5432E0A111 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		5E3213C559EBFA5432E0A111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9E0FECAE774006511EE1894 /* libPods-RWRecorder.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1A6875A440196108F2C5A09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				043ADA400C78EA69AD0359BA /* Pods-RWRecorder.debug.xcconfig */,
+				E5E7B4971270B89FE61F63CA /* Pods-RWRecorder.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RWRecorder" */;
 			buildPhases = (
+				84257D8919F41D9A644B40DE /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
+				499D4D9AAAA708125E21A3D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -111,6 +137,39 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		499D4D9AAAA708125E21A3D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RWRecorder/Pods-RWRecorder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84257D8919F41D9A644B40DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
@@ -201,6 +260,7 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 043ADA400C78EA69AD0359BA /* Pods-RWRecorder.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -217,6 +277,7 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E7B4971270B89FE61F63CA /* Pods-RWRecorder.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
